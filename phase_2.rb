@@ -1,7 +1,5 @@
 require "byebug"
-
-require 'knight'
-
+require_relative 'ploytree.rb'
 
 class KnightPathFinder
 
@@ -50,6 +48,7 @@ class KnightPathFinder
             if !@considered_positions.include?(ele)
                 new_moves << ele
                 @considered_positions << ele
+                PolyTreeNode.new(ele)
             end
         end
         new_moves
