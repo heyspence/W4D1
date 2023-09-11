@@ -1,5 +1,8 @@
 require "byebug"
 
+require 'knight'
+
+
 class KnightPathFinder
 
     attr_reader :root_node, :considered_positions
@@ -12,24 +15,6 @@ class KnightPathFinder
     def self.valid_moves(pos)
         valid_moves = []
         row, col = pos
-
-        # distance = [-2, -1, 1, 2]
-        # distance_coordinates = []
-
-        # distance.each.with_index do |ele, idx|
-        #     distance.each.with_index do |ele2, idx2|
-        #         if idx != idx2 && !distance_coordinates.include?([idx, idx2])
-        #             distance_coordinates << [idx, idx2]
-        #         end
-        #     end
-        # end
-
-        # distance_coordinates.each do |coordinate|
-        #     valid_moves << [coordinate[0] + row, coordinate[1] + col]
-        # end
-
-        # valid_moves.select{ |coordinate| coordinate[0].between?(0,7) && coordinate[1].between?(0,7) }
-
 
         if row - 1 >= 0 && col + 2 < 8
             valid_moves << [row - 1, col + 2]
