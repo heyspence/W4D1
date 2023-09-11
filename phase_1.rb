@@ -10,9 +10,50 @@ class KnightPathFinder
     def self.valid_moves(pos)
         valid_moves = []
         row, col = pos
-        if row + 2 < 8 && col + 1 < 8
-            valid_moves << [row + 2, col + 1]
+
+
+        # starting position
+        if row -2 >= 0
+            if col - 1 >=0
+
+            end
+
+            if col + 1 < 8
+
+            end
         end
+
+        if row -1 >=0
+            if col - 2 >=0
+            
+            end
+
+            if col + 2 < 8
+
+            end
+        end
+
+        if row + 1 < 8
+            if col -2 >=0
+
+            end
+            
+            if col + 2 < 8
+            end
+        end
+
+        if row + 2 < 8
+            if col -1 >= 0
+                
+            end
+
+            if col + 1 < 8
+
+            end
+        end
+
+
+
         if row - 1 >= 0 && col + 2 < 8
             valid_moves << [row - 1, col + 2]
         end
@@ -22,8 +63,8 @@ class KnightPathFinder
         if row + 1 < 8 && col - 2 >= 0
             valid_moves << [row + 1, col - 2]
         end
-        if row + 2 < 8 && col - 1 >= 0
-            valid_moves << [row + 2, col - 1]
+        if row + 2 < 8 && col + 1 < 8
+            valid_moves << [row + 2, col + 1]
         end
         if row - 1 >= 0 && col - 2 >= 0
             valid_moves << [row - 1, col -2]
@@ -34,6 +75,11 @@ class KnightPathFinder
         if row + 1 < 8 && col + 2 < 8
             valid_moves << [row + 1, col + 2]
         end
+        if row + 2 < 8 && col - 1 >= 0
+            valid_moves << [row + 2, col - 1]
+        end
+
+
     end
 
     def new_move_positions(pos)
