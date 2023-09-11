@@ -48,7 +48,6 @@ class KnightPathFinder
             if !@considered_positions.include?(ele)
                 new_moves << ele
                 @considered_positions << ele
-                PolyTreeNode.new(ele)
             end
         end
         new_moves
@@ -59,10 +58,24 @@ class KnightPathFinder
         until queue.empty?
             current_pos = queue.shift
             queue += new_move_positions(current_pos)
+
+            # Create node for current node
+            current_node = PolyTreeNode.new(current_pos)
+
+            # Create a node for each child, with parent relationship to current node
+            children = []
+            KnightPathFinder.valid_moves(current_pos).each do |child| 
+                children << PolyTreeNode.new(child, current_node)
+            end
+            
+            # Establish child relationshps
+            children.each do |child|
+                current_node.add_child(child)
+            end
         end
     end
 end
 
 kpf = KnightPathFinder.new([0,0])
 kpf.build_move_tree([1,1])
-p kpf.considered_positions.sort
+kpf.considered_positions

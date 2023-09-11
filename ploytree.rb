@@ -1,9 +1,9 @@
 class PolyTreeNode
     attr_reader :value, :parent, :children
 
-    def initialize(value)
+    def initialize(value, parent = nil)
         @value = value
-        @parent = nil 
+        @parent = parent 
         @children = []
     end
 
@@ -22,8 +22,16 @@ class PolyTreeNode
     end
 
     def add_child(child_node)
-        child_node.parent = self
+        # child_node.parent = self
+        @children << child_node
     end
+
+    def add_children(children)
+        children.each do |child|
+            @children << child
+        end
+    end
+        
 
     def remove_child(child_node)
         raise 'Not child buddy' if !@children.include?(child_node)
